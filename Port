@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PayPal Support</title>
+
+  <!-- Chaport Live Chat Code -->
+  <script type="text/javascript">
+    (function(w,d,v3){
+      w.chaportConfig = { appId : '682eaf8e0ebc93e6c7557de1' };
+      if(w.chaport)return;
+      v3=w.chaport={};v3._q=[];v3._l={};
+      v3.q=function(){v3._q.push(arguments)};
+      v3.on=function(e,fn){
+        if(!v3._l[e])v3._l[e]=[];
+        v3._l[e].push(fn)
+      };
+      var s=d.createElement('script');
+      s.type='text/javascript';s.async=true;
+      s.src='https://app.chaport.com/javascripts/insert.js';
+      var ss=d.getElementsByTagName('script')[0];
+      ss.parentNode.insertBefore(s,ss)
+    })(window, document);
+  </script>
+  <!-- End of Chaport Live Chat Code -->
+
+  <style>
+    /* PayPal brand colors */
+    :root {
+      --paypal-blue: #003087;
+      --paypal-light-blue: #009cde;
+      --paypal-dark-blue: #001f4d;
+      --paypal-gray: #f5f7fa;
+      --paypal-text-dark: #212121;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: var(--paypal-gray);
+      color: var(--paypal-text-dark);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: var(--paypal-blue);
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      height: 30px;
+      margin-right: 15px;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .search-bar {
+      margin-bottom: 40px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      max-width: 600px;
+      padding: 14px 20px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      border: 1.5px solid var(--paypal-light-blue);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .search-bar input:focus {
+      border-color: var(--paypal-dark-blue);
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .category {
+      background: white;
+      flex: 1 1 250px;
+      max-width: 260px;
+      border-radius: 12px;
+      padding: 25px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      cursor: pointer;
+      transition: box-shadow 0.3s;
+    }
+
+    .category:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .category-icon {
+      font-size: 40px;
+      color: var(--paypal-light-blue);
+      margin-bottom: 12px;
+    }
+
+    .category-title {
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .category-desc {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .contact-button {
+      margin: 50px auto 0;
+      display: block;
+      max-width: 220px;
+      background-color: var(--paypal-light-blue);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 3px 8px rgba(0,156,222,0.5);
+      transition: background-color 0.3s;
+    }
+
+    .contact-button:hover {
+      background-color: var(--paypal-dark-blue);
+    }
+
+    footer {
+      background-color: var(--paypal-blue);
+      color: white;
+      padding: 20px 30px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #aad4ff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal Logo" />
+    <h1>PayPal Support</h1>
+  </header>
+
+  <main>
+    <section class="search-bar">
+      <input type="search" placeholder="How can we help you today?" aria-label="Search PayPal support" />
+    </section>
+
+    <section class="categories" aria-label="Support categories">
+      <div class="category" tabindex="0" role="button" aria-pressed="false">
+        <div class="category-icon" aria-hidden="true">❓</div>
+        <div class="category-title">Getting Started</div>
+        <div class="category-desc">Learn how to create and verify your PayPal account.</div>
+      </div>
+
+      <div class="category" tabindex="0" role="button" aria-pressed="false">
+        <div class="category-icon" aria-hidden="true">👤</div>
+        <div class="category-title">Account Management</div>
+        <div class="category-desc">Update profile, change settings, and manage your account.</div>
+      </div>
+
+      <div class="category" tabindex="0" role="button" aria-pressed="false">
+        <div class="category-icon" aria-hidden="true">💳</div>
+        <div class="category-title">Payments & Transfers</div>
+        <div class="category-desc">Send money, receive payments, and manage transactions.</div>
+      </div>
+
+      <div class="category" tabindex="0" role="button" aria-pressed="false">
+        <div class="category-icon" aria-hidden="true">🔒</div>
+        <div class="category-title">Security & Privacy</div>
+        <div class="category-desc">Protect your account and understand PayPal security features.</div>
+      </div>
+    </section>
+
+    <a href="#" class="contact-button" role="button" aria-label="Contact PayPal Support">Contact Us</a>
+  </main>
+
+  <footer>
+    <a href="#">Privacy</a> | <a href="#">User Agreement</a> | <a href="#">Help Center</a>
+  </footer>
+</body>
+</html>
