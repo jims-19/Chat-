@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CashApp Support</title>
+  <style>
+    :root {
+      --green: #00c244;
+      --black: #000;
+      --gray: #1e1e1e;
+      --white: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: var(--green);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #aaa;
+      margin-bottom: 30px;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+      margin-bottom: 40px;
+    }
+
+    .category {
+      background: var(--gray);
+      padding: 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .category:hover {
+      background: var(--green);
+      color: var(--black);
+    }
+
+    .category span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .category h3 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .chat-box {
+      background: #121212;
+      border: 1px solid #2c2c2c;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .chat-box h2 {
+      color: var(--green);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .chat-box label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    .chat-box input,
+    .chat-box select,
+    .chat-box textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #1f1f1f;
+      color: var(--white);
+      font-size: 1rem;
+    }
+
+    .chat-box textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    .chat-box button {
+      margin-top: 20px;
+      width: 100%;
+      background: var(--green);
+      color: var(--black);
+      font-weight: bold;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .chat-box button:hover {
+      background: #00e055;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CashApp Support</h1>
+  <p>Welcome to CashApp Help Center. Choose a topic below or send us a message through the form.</p>
+
+  <div class="categories">
+    <div class="category" onclick="selectTopic('Payments')">
+      <span>💸</span>
+      <h3>Payments</h3>
+      <p>Issues with sending or receiving money?</p>
+    </div>
+    <div class="category" onclick="selectTopic('Cash Card')">
+      <span>💳</span>
+      <h3>Cash Card</h3>
+      <p>Problems with your physical card?</p>
+    </div>
+    <div class="category" onclick="selectTopic('Security')">
+      <span>🔐</span>
+      <h3>Security</h3>
+      <p>Report fraud or suspicious activity.</p>
+    </div>
+    <div class="category" onclick="selectTopic('Bank Accounts')">
+      <span>🏦</span>
+      <h3>Bank Accounts</h3>
+      <p>Trouble linking or verifying a bank?</p>
+    </div>
+    <div class="category" onclick="selectTopic('Account Access')">
+      <span>👤</span>
+      <h3>Account Access</h3>
+      <p>Can't log in or reset password?</p>
+    </div>
+  </div>
+
+  <div class="chat-box">
+    <h2>Contact Support</h2>
+    <form onsubmit="submitChat(event)">
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" required>
+
+      <label for="topic">Topic *</label>
+      <select id="topic" required>
+        <option value="" disabled selected>Select a topic</option>
+        <option>Payments</option>
+        <option>Cash Card</option>
+        <option>Security</option>
+        <option>Bank Accounts</option>
+        <option>Account Access</option>
+      </select>
+
+      <label for="message">Message</label>
+      <textarea id="message" placeholder="Describe your issue..."></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 CashApp Support. All rights reserved.
+  </footer>
+
+  <script>
+    function selectTopic(topic) {
+      document.getElementById('topic').value = topic;
+      document.getElementById('message').focus();
+    }
+
+    function submitChat(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const topic = document.getElementById('topic').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !topic) {
+        alert("Please complete all required fields.");
+        return;
+      }
+
+      alert(`Thank you, ${name}. Your request under "${topic}" has been submitted.`);
+      e.target.reset();
+    }
+  </script>
+<!-- Begin of Chaport Live Chat code --> <script type="text/javascript"> (function(w,d,v3){ w.chaportConfig = { appId : '682f56402dfac1189b5af02f' };  if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.q=function(){v3._q.push(arguments)};v3.on=function(e,fn){if(!v3._l[e])v3._l[e]=[];v3._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)})(window, document); </script> <!-- End of Chaport Live Chat code -->
+</body>
+</html>
