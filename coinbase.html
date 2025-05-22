@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Coinbase Support Center</title>
-  <!-- (Your existing styles remain unchanged) -->
   <style>
-    /* ... all your CSS here ... */
+    /* Your full CSS styles here (unchanged) */
   </style>
 </head>
 <body>
@@ -17,7 +16,9 @@
 </header>
 
 <main role="main" aria-label="Support features">
-  <!-- (Your cards remain unchanged) -->
+  <div class="cards" role="list">
+    <!-- Support cards (unchanged) -->
+  </div>
 </main>
 
 <!-- Support Icon -->
@@ -47,7 +48,6 @@
   </div>
 </div>
 
-<!-- Modal functionality script -->
 <script>
   const supportIcon = document.querySelector('.support-icon');
   const modal = document.querySelector('.modal');
@@ -83,12 +83,14 @@
   });
 </script>
 
-<!-- Chaport Live Chat Script -->
+<!-- Begin of Chaport Live Chat code -->
 <script type="text/javascript">
   (function(w,d,v3){
     w.chaportConfig = { appId : '682f3ea62dfac1189b5ae985' };
     if(w.chaport)return;
-    v3=w.chaport={};v3._q=[];v3._l={};
+    v3=w.chaport={};
+    v3._q=[];
+    v3._l={};
     v3.q=function(){v3._q.push(arguments)};
     v3.on=function(e,fn){
       if(!v3._l[e])v3._l[e]=[];
