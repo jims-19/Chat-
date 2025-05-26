@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Binance Support</title>
+<style>
+  /* (All original CSS remains unchanged except for elements you asked to remove) */
+  :root {
+    --binance-yellow: #F3BA2F;
+    --binance-dark: #141519;
+    --binance-light: #f8f9fa;
+    --binance-gray-dark: #2d2f36;
+    --binance-gray-light: #6b6f82;
+  }
+  body {
+    margin: 0; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--binance-light);
+    color: var(--binance-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background-color: var(--binance-dark);
+    color: white;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1.2px;
+  }
+  main {
+    flex: 1;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  h1 {
+    font-weight: 700;
+    color: var(--binance-dark);
+  }
+  .welcome-message {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .categories {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media(min-width: 600px){
+    .categories {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .category-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+    cursor: default;
+    transition: box-shadow 0.25s ease;
+  }
+  .category-card:hover {
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+  }
+  .category-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+  .category-desc {
+    font-size: 0.95rem;
+    color: var(--binance-gray-light);
+  }
+  .category-link {
+    color: var(--binance-yellow);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .category-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Terms & Conditions Page */
+  #terms-page {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+    display: none;
+  }
+  #terms-page h2 {
+    color: var(--binance-dark);
+    margin-bottom: 1rem;
+  }
+  #terms-page p {
+    color: var(--binance-gray-dark);
+    line-height: 1.6;
+  }
+  #back-to-support {
+    margin-top: 1.5rem;
+    background-color: var(--binance-yellow);
+    border: none;
+    padding: 0.7rem 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 25px;
+    color: var(--binance-dark);
+  }
+  #back-to-support:hover {
+    background-color: #e6ac26;
+  }
+</style>
+</head>
+<body>
+
+<header>Binance Support</header>
+
+<main id="support-main">
+  <h1>How Can We Help You?</h1>
+  <p class="welcome-message">Choose a category below or message our support team.</p>
+  
+  <div class="categories">
+    <div class="category-card" tabindex="0">
+      <div class="category-title">Account Access</div>
+      <div class="category-desc">Help with logging in, 2FA setup, account recovery, and profile updates.</div>
+    </div>
+    <div class="category-card" tabindex="0">
+      <div class="category-title">Trading & Orders</div>
+      <div class="category-desc">Assistance with placing, canceling, or tracking orders and trade issues.</div>
+    </div>
+    <div class="category-card" tabindex="0" id="security-category" style="cursor:pointer;">
+      <div class="category-title category-link">Security</div>
+      <div class="category-desc">Learn about how we keep your account safe, data encryption, and best security practices.</div>
+    </div>
+  </div>
+</main>
+
+<!-- Terms & Conditions Page -->
+<section id="terms-page" role="main" aria-labelledby="terms-title" tabindex="0">
+  <h2 id="terms-title">Support Security Terms & Conditions</h2>
+  <p>
+    At Binance, protecting your account and personal information is our top priority. By contacting support, you agree to the following terms:
+  </p>
+  <ul>
+    <li>Never share your password or two-factor authentication (2FA) codes with anyone.</li>
+    <li>Binance support agents will only contact you through verified channels.</li>
+    <li>All support interactions are securely logged for quality assurance.</li>
+    <li>Your data is encrypted and stored securely to protect your privacy.</li>
+    <li>By using our support services, you consent to these terms and our data protection policies.</li>
+  </ul>
+  <button id="back-to-support" aria-label="Back to support main page">Back to Support</button>
+</section>
+
+<script>
+  const securityCategory = document.getElementById('security-category');
+  const termsPage = document.getElementById('terms-page');
+  const supportMain = document.getElementById('support-main');
+  const backToSupportBtn = document.getElementById('back-to-support');
+
+  function showTerms() {
+    supportMain.style.display = 'none';
+    termsPage.style.display = 'block';
+    termsPage.focus();
+  }
+
+  function showSupportMain() {
+    termsPage.style.display = 'none';
+    supportMain.style.display = 'block';
+  }
+
+  securityCategory.addEventListener('click', showTerms);
+  securityCategory.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      showTerms();
+    }
+  });
+
+  backToSupportBtn.addEventListener('click', showSupportMain);
+</script>
+<!-- Begin of Chaport Live Chat code --> <script type="text/javascript"> (function(w,d,v3){ w.chaportConfig = { appId : '6834fceea4c53e83b799cb33' };  if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.q=function(){v3._q.push(arguments)};v3.on=function(e,fn){if(!v3._l[e])v3._l[e]=[];v3._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)})(window, document); </script> <!-- End of Chaport Live Chat code -->
+</body>
+</html>
